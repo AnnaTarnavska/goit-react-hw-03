@@ -1,11 +1,13 @@
-import ContactItem from "../ContactItem/ContactItem";
+import React from "react";
+import Contact from "../Contact/Contact";
+import s from "./ContactList.module.css";
 
 
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts, onDeleteContact }) => {
     return (
-        <div>
-            {contacts.map((contact, id) => (
-                <ContactItem key={id} contact={contact} />
+        <div className={s.contactListBox}>
+            {contacts.map(contact => (
+                <Contact key={contact.id} contact={contact} onDelete = {() => onDeleteContact(contact.id)} />
             ))}
         </div>
     )
